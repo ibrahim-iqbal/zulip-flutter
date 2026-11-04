@@ -1505,11 +1505,11 @@ void main() {
         check(reportedErrors).single.equals('Could not read file: missing.jpg');
 
         check(controller!.content.text)
-          .equals('see image: [Uploading image.jpg…]()\n\n');
+          .equals('see image: \n[Uploading image.jpg…]()\n');
 
         await tester.pump(const Duration(seconds: 1));
         check(controller!.content.text)
-          .equals('see image: [image.jpg](/user_uploads/1/4e/m2A3MSqFnWRLUf9SaPzQ0Up_/image.jpg)\n\n');
+          .equals('see image: \n[image.jpg](/user_uploads/1/4e/m2A3MSqFnWRLUf9SaPzQ0Up_/image.jpg)\n');
       }, variant: const TargetPlatformVariant({TargetPlatform.iOS}),
       // TODO(upstream): unskip after fix to https://github.com/flutter/flutter/issues/161073
       skip: Platform.isWindows);
